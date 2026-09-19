@@ -3,7 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Islamic Reminders</title>
+<meta name="description" content="Daily Islamic reminders, Qur'an verses, duas, dhikr, and quiet reflections to help you remember Allah throughout your day.">
+<meta name="keywords" content="Islamic reminders, daily Islamic reminders, duas, dhikr, Quran verses, Islamic duas, daily dua, remembrance of Allah">
+<meta name="author" content="Daily Islamic Reminders">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#081512">
+<link rel="canonical" href="https://dailyislamicremindersbyrija.netlify.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daily Islamic Reminders">
+<meta property="og:description" content="A quiet place for daily Islamic reminders, Qur'an verses, duas, dhikr, and reflection.">
+<meta property="og:url" content="https://dailyislamicremindersbyrija.netlify.app/">
+<meta property="og:site_name" content="Daily Islamic Reminders">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Daily Islamic Reminders">
+<meta name="twitter:description" content="Daily reminders, duas, Qur'an verses, dhikr, and reflections.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23081512'/%3E%3Cpath d='M62 20a31 31 0 1 0 18 55A33 33 0 1 1 62 20z' fill='%23F0C088'/%3E%3C/svg%3E">
+<title>Daily Islamic Reminders | Qur'an, Duas &amp; Dhikr</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Daily Islamic Reminders",
+  "url": "https://dailyislamicremindersbyrija.netlify.app/",
+  "description": "Daily Islamic reminders, Qur'an verses, duas, dhikr, and quiet reflections to help you remember Allah throughout your day."
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -69,10 +93,62 @@
     *{ animation: none !important; transition: none !important; }
   }
 
+  .skip-link{
+    position: fixed;
+    left: 16px;
+    top: 16px;
+    z-index: 100;
+    transform: translateY(-150%);
+    background: var(--parchment);
+    color: var(--night-deep);
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .skip-link:focus{ transform: translateY(0); }
+
   .wrap{
-    max-width: 640px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 0 28px;
+  }
+
+  .site-nav{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(8,21,18,0.88);
+    border-bottom: 1px solid rgba(217,153,90,0.16);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .site-nav-inner{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .site-nav-inner::-webkit-scrollbar{ display:none; }
+  .site-nav a{
+    flex: 0 0 auto;
+    color: var(--parchment-dim);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 8px 11px;
+    border-radius: 999px;
+    transition: background .2s ease, color .2s ease;
+  }
+  .site-nav a:hover, .site-nav a:focus-visible{
+    background: rgba(217,153,90,0.12);
+    color: var(--gold-soft);
   }
 
   /* ---------- HERO ---------- */
@@ -145,7 +221,8 @@
   /* ---------- SECTIONS ---------- */
   section{
     position: relative;
-    padding: 100px 0 0;
+    padding: 92px 0 0;
+    scroll-margin-top: 64px;
   }
 
   .divider{
@@ -168,9 +245,9 @@
 
   .section-head{
     display: flex;
-    align-items: baseline;
-    gap: 14px;
-    margin-bottom: 40px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 26px;
   }
 
   .section-head .mark{
@@ -179,45 +256,67 @@
   }
 
   .section-head h2{
-    font-size: 27px;
+    font-size: clamp(26px, 5vw, 32px);
     letter-spacing: 0.01em;
   }
 
   .section-sub{
-    color: var(--sage-dim);
-    font-size: 14.5px;
-    margin-top: -28px;
-    margin-bottom: 44px;
-    max-width: 46ch;
+    color: var(--sage);
+    font-size: 15px;
+    margin-top: -8px;
+    margin-bottom: 30px;
+    max-width: 54ch;
   }
 
-  /* Today's reminder */
+  /* Today's reminder — intentionally calm and highly readable */
   .reminder-card{
     position: relative;
-    background:
-      var(--pattern),
-      linear-gradient(160deg, rgba(212,175,106,0.10), rgba(212,175,106,0.015) 60%);
-    background-size: 84px 84px, cover;
-    background-blend-mode: soft-light, normal;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    padding: 38px 34px;
-    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04);
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(30,57,48,0.96), rgba(12,31,25,0.98));
+    border: 1px solid rgba(240,192,136,0.28);
+    border-radius: 18px;
+    padding: clamp(28px, 5vw, 42px);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+  }
+
+  .reminder-card::before{
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--gold-soft), var(--gold-dim));
+  }
+
+  .reminder-card::after{
+    content: "✦";
+    position: absolute;
+    right: 24px;
+    top: 18px;
+    color: rgba(240,192,136,0.26);
+    font-size: 24px;
   }
 
   .reminder-card p{
-    font-size: 17px;
-    color: var(--parchment-dim);
+    max-width: 62ch;
+    font-size: clamp(17px, 2.5vw, 20px);
+    line-height: 1.9;
+    color: var(--parchment);
+    font-weight: 400;
   }
 
   .reminder-card .tag{
-    display: inline-block;
-    font-size: 12px;
-    color: var(--gold);
-    border: 1px solid var(--line);
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 18px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    background: rgba(217,153,90,0.10);
+    border: 1px solid rgba(217,153,90,0.25);
+    padding: 6px 11px;
+    border-radius: 999px;
+    margin-bottom: 20px;
   }
 
   /* Qur'an */
@@ -306,26 +405,30 @@
   /* ---------- Search ---------- */
   .dua-search{
     position: relative;
-    margin-bottom: 44px;
+    margin-bottom: 34px;
   }
 
   .dua-search input{
     width: 100%;
-    background: rgba(212,175,106,0.05);
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    padding: 15px 18px;
+    min-height: 52px;
+    background: rgba(248,236,218,0.045);
+    border: 1px solid rgba(240,192,136,0.25);
+    border-radius: 14px;
+    padding: 14px 17px;
     color: var(--parchment);
     font-family: 'Work Sans', sans-serif;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 400;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
   }
 
-  .dua-search input::placeholder{ color: var(--sage-dim); }
+  .dua-search input::placeholder{ color: #8fa69b; }
 
   .dua-search input:focus{
     border-color: var(--gold);
-    background: rgba(212,175,106,0.09);
+    background: rgba(240,192,136,0.075);
+    box-shadow: 0 0 0 4px rgba(217,153,90,0.08);
+    outline: none;
   }
 
   .no-results{
@@ -338,22 +441,30 @@
   }
 
   /* ---------- Dua / Adhkar categories & accordion ---------- */
-  .dua-category{ margin-bottom: 46px; }
+  .dua-category{
+    margin-bottom: 28px;
+    padding: 20px 20px 6px;
+    background: rgba(248,236,218,0.025);
+    border: 1px solid rgba(217,153,90,0.13);
+    border-radius: 16px;
+  }
   .dua-category:last-child{ margin-bottom: 0; }
 
   .dua-cat-title{
-    font-size: 15px;
+    font-size: 13px;
     color: var(--gold-soft);
-    letter-spacing: 0.02em;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     margin-bottom: 4px;
-    padding-bottom: 14px;
+    padding: 2px 2px 14px;
     border-bottom: 1px solid var(--line);
   }
 
   .dua-list{ }
 
   .dua-item{
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(217,153,90,0.14);
   }
   .dua-item:last-child{ border-bottom: none; }
 
@@ -364,10 +475,11 @@
     align-items: center;
     justify-content: space-between;
     gap: 14px;
-    padding: 20px 4px;
+    padding: 19px 4px;
     font-family: 'Amiri', serif;
-    font-size: 17.5px;
-    color: var(--parchment-dim);
+    font-size: 18px;
+    line-height: 1.45;
+    color: var(--parchment);
     transition: color 0.2s ease, padding-left 0.2s ease;
   }
 
@@ -379,9 +491,9 @@
   }
 
   .dua-item summary .plus{
-    color: var(--gold);
+    color: var(--gold-soft);
     font-family: 'Work Sans', sans-serif;
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 300;
     transition: transform 0.25s ease;
     flex-shrink: 0;
@@ -390,27 +502,23 @@
   .dua-item[open] summary .plus{ transform: rotate(45deg); }
 
   .dua-item .dua-body{
-    padding: 0 4px 28px;
-    font-size: 14.5px;
+    padding: 0 4px 26px;
+    font-size: 15px;
+    line-height: 1.85;
     color: var(--sage);
-    max-width: 54ch;
+    max-width: 62ch;
     animation: reveal 0.3s ease;
-  }
-
-  @keyframes reveal{
-    from{ opacity: 0; transform: translateY(-6px); }
-    to{ opacity: 1; transform: translateY(0); }
   }
 
   .dua-item .dua-body .arabic-small{
     font-family: 'Amiri', serif;
-    font-size: 19px;
+    font-size: clamp(22px, 4vw, 26px);
     color: var(--parchment);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     display: block;
     direction: rtl;
     text-align: right;
-    line-height: 1.8;
+    line-height: 2.05;
   }
 
   /* Forgiveness section — visually distinct treatment */
@@ -436,10 +544,10 @@
   }
 
   .community-links a{
-    flex: 1 1 200px;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    padding: 22px 24px;
+    flex: 1 1 240px;
+    border: 1px solid rgba(217,153,90,0.22);
+    border-radius: 16px;
+    padding: 24px;
     display: block;
     text-decoration: none;
     transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
@@ -480,9 +588,35 @@
     color: var(--parchment-dim);
     margin-bottom: 10px;
   }
+
+  @media (max-width: 700px){
+    .wrap{ padding: 0 18px; }
+    .hero{ padding: 64px 20px 78px; }
+    .hero h1{ font-size: clamp(32px, 10vw, 43px); }
+    .ayah{ font-size: 20px; }
+    section{ padding-top: 76px; }
+    .divider{ padding-bottom: 72px; }
+    .site-nav-inner{ justify-content: flex-start; padding-inline: 12px; }
+    .section-head{ margin-bottom: 22px; }
+    .reminder-card{ padding: 26px 24px 28px; border-radius: 16px; }
+    .reminder-card p{ font-size: 17px; line-height: 1.85; }
+    .dua-category{ padding: 17px 15px 5px; border-radius: 14px; }
+    .dua-item summary{ font-size: 17px; padding: 17px 3px; }
+    .dua-item .dua-body{ padding-inline: 3px; font-size: 14.5px; }
+    .dua-item .dua-body .arabic-small{ font-size: 22px; line-height: 1.95; }
+    .sleep-verse{ padding: 22px 18px; }
+    .sleep-verse .arabic{ font-size: 20px; line-height: 1.9; }
+  }
+
+  @media (prefers-contrast: more){
+    :root{ --sage: #D6E5DE; --sage-dim: #AFC4BA; --parchment-dim: #F4E8D4; }
+    .reminder-card, .dua-category, .dua-search input, .community-links a{ border-color: rgba(240,192,136,0.5); }
+  }
 </style>
 </head>
 <body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <div class="hero">
     <p class="kicker">Daily Islamic Reminders</p>
@@ -493,9 +627,22 @@
     </p>
   </div>
 
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="site-nav-inner">
+      <a href="#reminder">Reminder</a>
+      <a href="#quran">Qur'an</a>
+      <a href="#duas">Duas</a>
+      <a href="#forgiveness">Forgiveness</a>
+      <a href="#dhikr">Dhikr</a>
+      <a href="#sleep">Sleep</a>
+      <a href="#community">Community</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
   <div class="wrap">
 
-    <section id="reminder" style="padding-top:88px;">
+    <section id="reminder">
       <div class="section-head">
         <span class="mark">◐</span>
         <h2>Today's Reminder</h2>
@@ -539,7 +686,7 @@
       <p class="section-sub">Search for what you're carrying today, or browse by situation.</p>
 
       <div class="dua-search">
-        <input type="text" id="duaSearch" placeholder="Search — anxious, sadness, parents, guidance…" autocomplete="off">
+        <input type="text" id="duaSearch" aria-label="Search duas" placeholder="Search — anxious, sadness, parents, guidance…" autocomplete="off">
       </div>
 
       <div id="duaCategories">
@@ -967,6 +1114,7 @@
     </section>
 
   </div>
+  </main>
 
   <footer>
     <p class="ayah-foot">"Indeed, in the remembrance of Allah do hearts find rest."</p>
@@ -978,7 +1126,7 @@
     const categories = document.querySelectorAll('#duaCategories .dua-category');
     const noResults = document.getElementById('noResults');
 
-    searchInput.addEventListener('input', function(){
+    if (searchInput) searchInput.addEventListener('input', function(){
       const q = this.value.trim().toLowerCase();
       let anyVisible = false;
 
