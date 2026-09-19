@@ -521,18 +521,31 @@
     line-height: 2.05;
   }
 
-  /* Forgiveness section — visually distinct treatment */
+  /* Seeking Forgiveness — clean, readable style matching the main dua cards */
   .forgive-wrap{
-    background:
-      var(--pattern),
-      linear-gradient(160deg, rgba(212,175,106,0.07), transparent 60%);
-    background-size: 84px 84px, cover;
-    background-blend-mode: soft-light, normal;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    padding: 6px 28px;
+    background: rgba(248,236,218,0.025);
+    border: 1px solid rgba(217,153,90,0.13);
+    border-radius: 16px;
+    padding: 6px 20px;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.12);
   }
-  .forgive-wrap .dua-item:first-child summary{ padding-top: 22px; }
+  .forgive-wrap .dua-item:first-child summary{ padding-top: 19px; }
+  .forgive-wrap .dua-item summary{
+    font-size: 18px;
+    padding: 19px 4px;
+  }
+  .forgive-wrap .dua-item .dua-body{
+    padding: 0 4px 28px;
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--sage);
+  }
+  .forgive-wrap .dua-item .arabic-small{
+    font-size: clamp(24px, 4.5vw, 30px);
+    line-height: 2.15;
+    text-align: right;
+    margin-bottom: 16px;
+  }
 
   /* Dhikr accordion reuses .dua-item styling via shared classes */
 
